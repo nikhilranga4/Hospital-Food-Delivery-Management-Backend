@@ -14,10 +14,11 @@ const app = express();
 // Configure CORS to allow requests from your frontend
 app.use(cors({
   origin: [
-    'http://localhost:5173', 
-    'https://973afac4-950c-4701-a6e1-2bd9230458bd.lovableproject.com',
-    process.env.FRONTEND_URL
-  ].filter(Boolean),
+    'http://localhost:8080',  // Add the correct frontend URL if running locally
+    'http://localhost:5173',  // If you're using Vite for frontend
+    'https://973afac4-950c-4701-a6e1-2bd9230458bd.lovableproject.com',  // Your deployed frontend URL
+    process.env.FRONTEND_URL // Additional frontend URL from environment variables (if any)
+  ].filter(Boolean),  // Filters out any empty or undefined origins
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
